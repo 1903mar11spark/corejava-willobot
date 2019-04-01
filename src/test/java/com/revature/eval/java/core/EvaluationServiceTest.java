@@ -19,6 +19,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import com.revature.eval.java.core.EvaluationService;
+
 public class EvaluationServiceTest {
 
 	private static final EvaluationService evaluationService = new EvaluationService();
@@ -33,6 +35,7 @@ public class EvaluationServiceTest {
 	public void testAnEmptyString() {
 		assertEquals("", evaluationService.reverse(""));
 	}
+
 
 	@Test
 	public void testAWord() {
@@ -124,7 +127,7 @@ public class EvaluationServiceTest {
 		EvaluationService.Triangle triangle = new EvaluationService.Triangle(0.5, 0.4, 0.6);
 		assertTrue(triangle.isScalene());
 	}
-
+//
 	/*******************************************************************
 	 * Question 4
 	 ******************************************************************/
@@ -255,37 +258,28 @@ public class EvaluationServiceTest {
 	@Test
 	public void findsAValueInTheMiddleOfAnArray() {
 		List<String> sortedList = Collections.unmodifiableList(Arrays.asList("1", "3", "4", "6", "8", "9", "11"));
-
 		EvaluationService.BinarySearch<String> search = new EvaluationService.BinarySearch<>(sortedList);
-
 		assertEquals(3, search.indexOf("6"));
 	}
 
 	@Test
 	public void findsAValueAtTheBeginningOfAnArray() {
 		List<Integer> sortedList = Collections.unmodifiableList(Arrays.asList(1, 3, 4, 6, 8, 9, 11));
-
 		EvaluationService.BinarySearch<Integer> search = new EvaluationService.BinarySearch<>(sortedList);
-
 		assertEquals(0, search.indexOf(1));
 	}
 
 	@Test
 	public void findsAValueAtTheEndOfAnArray() {
 		List<Integer> sortedList = Collections.unmodifiableList(Arrays.asList(1, 3, 4, 6, 8, 9, 11));
-
 		EvaluationService.BinarySearch<Integer> search = new EvaluationService.BinarySearch<>(sortedList);
-
 		assertEquals(6, search.indexOf(11));
 	}
 
 	@Test
 	public void findsAValueInAnArrayOfOddLength() {
-		List<Integer> sortedListOfOddLength = Collections
-				.unmodifiableList(Arrays.asList(1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634));
-
+		List<Integer> sortedListOfOddLength = Collections.unmodifiableList(Arrays.asList(1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634));
 		EvaluationService.BinarySearch<Integer> search = new EvaluationService.BinarySearch<>(sortedListOfOddLength);
-
 		assertEquals(9, search.indexOf(144));
 	}
 
